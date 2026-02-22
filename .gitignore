@@ -1,0 +1,71 @@
+# ── Python / Django ───────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Entorno virtual
+venv/
+.venv/
+env/
+.env/
+
+# Base de datos SQLite
+*.sqlite3
+*.db
+
+# Variables de entorno del backend
+Django_REST_Framework/.env
+
+# Archivos estáticos generados
+staticfiles/
+static/
+
+# Migraciones (opcional: descomenta si no quieres rastrearlas)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Coverage
+.coverage
+htmlcov/
+
+# ── Node.js / Next.js ─────────────────────────────
+node_modules/
+.next/
+out/
+build/
+
+# Variables de entorno del frontend
+taskify-frontend-main/.env
+taskify-frontend-main/.env.local
+taskify-frontend-main/.env.development.local
+taskify-frontend-main/.env.test.local
+taskify-frontend-main/.env.production.local
+
+# Logs de npm / yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Cache
+.eslintcache
+.turbo/
+
+# ── Sistema operativo ─────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs y editores ───────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
