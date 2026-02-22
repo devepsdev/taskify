@@ -4,7 +4,7 @@ const ListTask = ({ tasks, loading, completedCount, onNewTask, onToggleDone, onE
   return (
     <>
       {/* Stats */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "2rem" }}>
+      <div className="stats-grid">
         <div className="stats-card">
           <span className="stats-number">{tasks.length}</span>
           <span className="stats-label">Total de Tareas</span>
@@ -40,7 +40,7 @@ const ListTask = ({ tasks, loading, completedCount, onNewTask, onToggleDone, onE
           </button>
         </div>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))", gap: "1.5rem" }}>
+        <div className="tasks-grid">
           {tasks.map((task) => (
             <TaskCard
               key={task.id}

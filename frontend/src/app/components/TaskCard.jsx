@@ -18,7 +18,7 @@ const TaskCard = ({ task, onToggleDone, onEdit, onDelete }) => {
         {new Date(task.created_at).toLocaleString("es-ES")}
       </div>
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className="task-actions">
         <button className="btn-action btn-complete" onClick={() => onToggleDone(task)}>
           <i className={`fas ${task.done ? "fa-undo" : "fa-check"}`} style={{ marginRight: "0.3rem" }} />
           {task.done ? "Desmarcar" : "Completar"}

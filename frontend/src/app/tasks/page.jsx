@@ -113,7 +113,7 @@ export default function TasksPage() {
   const completedCount = tasks.filter((t) => t.done).length;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "1.5rem" }}>
+    <div className="page-container">
 
       {/* Header */}
       <div className="header">
