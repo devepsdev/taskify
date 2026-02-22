@@ -9,7 +9,7 @@ Aplicación web de gestión de tareas construida con **Django REST Framework** e
 ### Backend
 
 | Tecnología | Versión |
-|---|---|
+| --- | --- |
 | Python | 3.x |
 | Django | 5.2.4 |
 | Django REST Framework | 3.16.0 |
@@ -19,7 +19,7 @@ Aplicación web de gestión de tareas construida con **Django REST Framework** e
 ### Frontend
 
 | Tecnología | Versión |
-|---|---|
+| --- | --- |
 | Next.js | 15.4.5 |
 | React | 19.1.0 |
 | TailwindCSS | 4 |
@@ -29,10 +29,10 @@ Aplicación web de gestión de tareas construida con **Django REST Framework** e
 
 ## Estructura del proyecto
 
-```
+```Estructura
 Taskify/
 ├── .gitignore
-├── Django_REST_Framework/       # Backend (API REST)
+├── backend/                     # Backend (API REST)
 │   ├── .env                     # Variables de entorno — no subir al repo
 │   ├── taskapi/                 # Configuración del proyecto Django
 │   │   ├── settings.py          # Lee SECRET_KEY y DEBUG desde .env
@@ -45,7 +45,7 @@ Taskify/
 │   ├── manage.py
 │   └── requirements.txt
 │
-├── taskify-frontend-main/       # Frontend (Next.js)
+├── frontend/                    # Frontend (Next.js)
 │   ├── .env.local               # URL del backend para desarrollo — no subir al repo
 │   ├── .env.production          # URL del backend para el build de producción
 │   ├── next.config.mjs          # output: export, trailingSlash, images unoptimized
@@ -70,7 +70,7 @@ Taskify/
 Base URL: `http://localhost:8000/api/`
 
 | Método | Endpoint | Descripción |
-|---|---|---|
+| --- | --- | --- |
 | `GET` | `/api/tasks/` | Listar todas las tareas |
 | `POST` | `/api/tasks/` | Crear una nueva tarea |
 | `GET` | `/api/tasks/{id}/` | Obtener una tarea por ID |
@@ -83,7 +83,7 @@ Base URL: `http://localhost:8000/api/`
 ### Modelo Task
 
 | Campo | Tipo | Descripción |
-|---|---|---|
+| --- | --- | --- |
 | `id` | BigAutoField | Identificador único (auto) |
 | `title` | CharField (200) | Título de la tarea |
 | `description` | TextField | Descripción (opcional) |
@@ -97,7 +97,7 @@ Base URL: `http://localhost:8000/api/`
 El frontend sigue una arquitectura cliente con separación clara de responsabilidades:
 
 | Archivo | Rol |
-|---|---|
+| --- | --- |
 | `tasks/page.jsx` | Orquestador. Gestiona todo el estado (`tasks`, `loading`, `error`, `formData`, `editingTask`, `showModal`) y las llamadas a la API. Compone `ListTask` y `FormTask`. |
 | `components/ListTask.jsx` | Presentacional. Recibe las tareas y callbacks como props. Renderiza las 3 tarjetas de estadísticas, el estado de carga, el estado vacío y el grid de `TaskCard`. |
 | `components/TaskCard.jsx` | Presentacional. Muestra los datos de una tarea y delega las acciones (completar, editar, eliminar) al orquestador mediante callbacks. Sin estado propio. |
@@ -109,7 +109,7 @@ Todas las peticiones a la API se realizan en el cliente mediante `fetch`. No se 
 
 ## Diseño
 
-El sistema de diseño está definido en `globals.css` e implementa la estética del prototipo original (`index.html`):
+El sistema de diseño está definido en `globals.css`:
 
 - **Fondo**: gradiente `#667eea → #4b93a2`
 - **Tarjetas**: glassmorphism con `backdrop-filter: blur` y borde semitransparente
@@ -137,7 +137,7 @@ cd Taskify
 
 ### 2. Variables de entorno del backend
 
-Crea el archivo `Django_REST_Framework/.env` (no se incluye en el repositorio):
+Crea el archivo `backend/.env` (no se incluye en el repositorio):
 
 ```env
 DJANGO_SECRET_KEY=tu-clave-secreta-aqui
@@ -151,7 +151,7 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000
 ### 3. Backend
 
 ```bash
-cd Django_REST_Framework
+cd backend
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
@@ -161,7 +161,7 @@ El servidor se ejecutará en `http://localhost:8000`.
 
 ### 4. Variables de entorno del frontend
 
-Crea el archivo `taskify-frontend-main/.env.local` (no se incluye en el repositorio):
+Crea el archivo `frontend/.env.local` (no se incluye en el repositorio):
 
 ```env
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
@@ -172,7 +172,7 @@ NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
 ### 5. Frontend
 
 ```bash
-cd taskify-frontend-main
+cd frontend
 npm install
 npm run dev
 ```
@@ -185,7 +185,7 @@ El frontend se ejecutará en `http://localhost:3000`.
 
 ### 1. Variables de entorno del backend
 
-Crea o actualiza `Django_REST_Framework/.env` en el servidor:
+Crea o actualiza `backend/.env` en el servidor:
 
 ```env
 DJANGO_SECRET_KEY=clave-segura-generada-para-produccion
@@ -196,7 +196,7 @@ CORS_ALLOWED_ORIGINS=https://deveps.ddns.net
 ### 2. Backend
 
 ```bash
-cd Django_REST_Framework
+cd backend
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py collectstatic
@@ -206,7 +206,7 @@ Sirve la aplicación con **Gunicorn** o **uWSGI** detrás de Apache/Nginx.
 
 ### 3. Frontend
 
-El archivo `taskify-frontend-main/.env.production` (incluido en el repositorio) ya apunta al backend de producción:
+El archivo `frontend/.env.production` (incluido en el repositorio) ya apunta al backend de producción:
 
 ```env
 NEXT_PUBLIC_BACKEND_URL=https://deveps.ddns.net
@@ -215,7 +215,7 @@ NEXT_PUBLIC_BACKEND_URL=https://deveps.ddns.net
 Genera el export estático y cópialo al directorio de Apache:
 
 ```bash
-cd taskify-frontend-main
+cd frontend
 npm install
 npm run build        # genera out/ con .env.production activo
 cp -r out/* /var/www/html/
@@ -225,7 +225,7 @@ cp -r out/* /var/www/html/
 
 `next.config.mjs` tiene `trailingSlash: true`, por lo que Next.js genera:
 
-```
+```Estructura
 out/
 ├── index.html          →  /
 └── tasks/

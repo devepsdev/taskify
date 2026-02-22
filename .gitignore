@@ -21,7 +21,9 @@ env/
 *.db
 
 # Variables de entorno del backend
-Django_REST_Framework/.env
+backend/.env
+backend/.env.local
+backend/.env.production
 
 # Archivos estáticos generados
 staticfiles/
@@ -42,11 +44,12 @@ out/
 build/
 
 # Variables de entorno del frontend
-taskify-frontend-main/.env
-taskify-frontend-main/.env.local
-taskify-frontend-main/.env.development.local
-taskify-frontend-main/.env.test.local
-taskify-frontend-main/.env.production.local
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/.env.production
 
 # Logs de npm / yarn
 npm-debug.log*
