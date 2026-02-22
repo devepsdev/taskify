@@ -250,7 +250,7 @@ Apache sirve `index.html` por defecto en cada directorio, por lo que las rutas f
 
 ## Demo
 
-![Demo de la aplicación](public/Animation.gif)
+![Demo de la aplicación](/frontend/public/Animation.gif)
 
 ---
 
