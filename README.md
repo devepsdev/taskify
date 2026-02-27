@@ -254,6 +254,15 @@ Apache sirve `index.html` por defecto en cada directorio, por lo que las rutas f
 
 ---
 
-## Autor
+## 👨‍💻 Autor
 
-**Enrique Pérez** — 2025
+**DevEps** - Desarrollador Full Stack
+
+- GitHub: [github.com/devepsdev](https://github.com/devepsdev)
+- Portfolio: [deveps.ddns.net](https://deveps.ddns.net)
+- Email: devepsdev@gmail.com
+- LinkedIn: [www.linkedin.com/in/enrique-perez-sanchez](https://www.linkedin.com/in/enrique-perez-sanchez/)
+
+---
+
+⭐ ¡Dale una estrella si el proyecto te ha resultado útil!
